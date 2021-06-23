@@ -1,41 +1,36 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { auth } from '../service/firebase';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import Home from '../pages/Home'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    '& > * + *': {
+      marginLeft: theme.spacing(2),
+    },
   },
-});
+}));
 
-export default function Header() {
+export default function Links() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const preventDefault = (event) => event.preventDefault();
 
   return (
-    <Paper className={classes.root}>
-        { auth().currentUser ?
-        <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered>
-            <Tab label="Home" />
-            <Tab label="Chat" />
-            <Tab onClick={() => {auth().signOut()}} label="Logout" />
-        </Tabs>
-        :
-        null
-    }
-
-    </Paper>
+    <Typography className={classes.root}>
+      <Link to="/" onClick={preventDefault}>
+        Home
+      </Link>
+      <Link href="/chat" onClick={preventDefault}>
+        Chat
+      </Link>
+      <Link href="/login" onClick={preventDefault}>
+        Login
+      </Link>
+      <Link href="/logout" onClick={preventDefault}>
+        Logout
+      </Link>
+    </Typography>
   );
 }

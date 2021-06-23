@@ -17,14 +17,14 @@ const Chat = () => {
             db.ref("chats").on("value", snapshot => {
                 let chats = [];
                 snapshot.forEach((snap) => {
-                    chats.push(snap.val);
+                    chats.push(snap.val());
                 })
                 setChats(chats);
             })
         } catch (error) {
             setReadError(readError.message);
         }
-    }, [chats]);
+    }, []);
 
     const handleChange = (e) => {
         setContent(e.target.value);
@@ -52,24 +52,22 @@ const Chat = () => {
     return (
         <div>
             <Header />
+            <h3 className="section_header">Logged in as: <strong>{user.email}</strong></h3>
             <div className="chats">
                 {chats.map((chat) => {
                     return <p key={chat.timestamp}>{chat.content}</p>;
                 })}
             </div>
-            <div>
-                Message from ##
-                <form onSubmit={handleSubmit} action="">
-                    <input type="text" onChange={handleChange} value={content} />
+            <div className="input_container">
+                <h3 className="section_header">Send a message:</h3>
+                <form className="chat_form" onSubmit={handleSubmit} action="">
+                    <input className="chat_input" type="text" onChange={handleChange} value={content} />
                     { writeError ? <p>{ writeError }</p> : null }
-                    <button type="submit">Send</button>
+                    <button className="btn_submit" type="submit">Send</button>
                 </form>
-            </div>
-            <div>
-                {/* Login as: <strong>{user.email}</strong> */}
             </div>
         </div>
     )
 }
 
-export default Chat
+export default Chat;

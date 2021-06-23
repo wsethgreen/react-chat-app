@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from '../components/Header.js';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signInWithGoogle, signup } from '../helpers/auth';
@@ -38,6 +39,7 @@ const SignUp = () => {
 
     return (
         <div>
+            <Header />
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up to <Link to="/">The Chat App</Link></h1>
                 <p>Fill out the form to use the app.</p>

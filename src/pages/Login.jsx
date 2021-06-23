@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from '../components/Header.js';
 import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
 
 
@@ -20,16 +21,17 @@ const handlePasswordChange = (e) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError({ error });
+    setError("error");
     try {
       await signin(email, password);
     } catch (error) {
-      setError({ error: error.message });
+      setError(error.message);
     }
   };
 
   return (
     <div>
+      <Header />
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h1>
           Login to
