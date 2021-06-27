@@ -63,7 +63,8 @@ const Chat = () => {
                         </div>
                         
                     ) 
-                })}
+                })
+                }
             </div>
             <div className="input_container">
                 <h3 className="section_header">Send a message:</h3>
