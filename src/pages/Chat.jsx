@@ -55,7 +55,14 @@ const Chat = () => {
             <h3 className="section_header">Logged in as: <strong>{user.email}</strong></h3>
             <div className="chats">
                 {chats.map((chat) => {
-                    return <p key={chat.timestamp}>{chat.content}</p>;
+                    return (
+                        <div className="message">
+                            <p className="chat_message" key={chat.timestamp}>{chat.content}</p>
+                            <p className="user_email" key={chat.timestamp}>{user.email}</p>
+                            <p className="chat_timestamp" key={chat.timestamp}>{chat.timestamp}</p>
+                        </div>
+                        
+                    ) 
                 })}
             </div>
             <div className="input_container">

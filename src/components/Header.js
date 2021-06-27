@@ -19,18 +19,13 @@ export default function Links() {
 
   return (
     <Typography className={classes.root}>
-      <Link to="/" onClick={preventDefault}>
-        Home
-      </Link>
-      <Link href="/chat" onClick={preventDefault}>
-        Chat
-      </Link>
-      <Link href="/login" onClick={preventDefault}>
-        Login
-      </Link>
-      <Link href="/logout" onClick={preventDefault}>
-        Logout
-      </Link>
+      <div className="navbar_container">
+        <a className="nav_link" href="/">Home</a>
+        <a className="nav_link" href="/chat">Chat</a>
+        <a className="nav_link" href="/login">Login</a>
+        <a className="nav_link" href="/logout">Logout</a>
+      </div>
+
     </Typography>
   );
 }
