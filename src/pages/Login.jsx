@@ -35,7 +35,7 @@ const handlePasswordChange = (e) => {
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h1>
           Login to
-          <Link to="/">Chatty</Link>
+          <Link to="/login">Chatty</Link>
         </h1>
         <p>Fill in the form below to login to your account.</p>
         <div>

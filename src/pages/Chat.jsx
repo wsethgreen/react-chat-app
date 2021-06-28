@@ -22,7 +22,7 @@ const Chat = () => {
                 setChats(chats);
             })
         } catch (error) {
-            setReadError(readError.message);
+            setReadError(error.message);
         }
     }, []);
 

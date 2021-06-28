@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Chat from './pages/Chat';
 import SignUp from './pages/SignUp'
 import Login from './pages/Login';
-import { auth } from './service/firebase';
+import { auth } from './service/firebase.js';
 
 const PrivateRoute = ({ component: Component, authenticated, ...rest }) => {
   return (
